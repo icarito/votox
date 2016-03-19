@@ -1,4 +1,4 @@
 *.pyc
 *.swp
-dist/
-Video/
+.buildozer/
+shelve.db
