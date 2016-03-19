@@ -139,9 +139,11 @@ class MyApp(App):
         layout = AnchorLayout(padding=10,
                             orientation='vertical')
         layout.add_widget(goodbye)
-        layout.add_widget(ProgressBar(value=20))
+        progress = ProgressBar(value=20)
+        layout.add_widget(progress)
         result.add_widget(layout)
 
+        self.progress = progress
         self.sm = sm
         return sm
 
@@ -151,8 +153,25 @@ class MyApp(App):
 
         try:
             r = requests.post('http://pad.somosazucar.org:5000/vote', data=vote)
+            result = r.content
         except:
-            print "SERVIDOR NO ENCONTRADO"
+            result = "SERVIDOR NO ENCONTRADO"
+
+        self.progress.value=100
+        self.present_result(r.content)
+
+    def present_result(self, result):
+        layout = BoxLayout(padding=10,
+                            orientation='vertical')
+        layout.add_widget(Label(text=result))
+        confirm_btn = Button(text='Aceptar',
+                            size_hint=(1, 0.2))
+        layout.add_widget(confirm_btn)
+        popup = Popup(title=u'Resultado',
+                            content=layout,
+                            size_hint=(None, None), size=(400, 400))
+        confirm_btn.bind(on_press=popup.dismiss)
+        popup.open()
 
 if __name__ == '__main__':
     MyApp().run()
