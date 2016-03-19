@@ -1,13 +1,13 @@
 ¿No sería mostro contar con un Sistema distribuido de reporte y conteo de votos?
 
-= VotoX =
+# VotoX
 
-=== hecho por y para ciudadanos ===
+### hecho por y para ciudadanos
 
-== Objetivo ==
+## Objetivo
 Proporcionar a la ciudadanía un sistema paralelo, multiplataforma, seguro y distribuído donde cada nodo puede reportar su voto y hacer verificación ciudadana. 
 
-== ¿Como funciona VotoX? ==
+## ¿Cómo funciona VotoX?
 
 Utilizando este sistema cualquier ciudadano que porte un DNI válido y tenga acceso a la aplicación, podrá reportar su voto, el cual se vá contabilizado dentro de la cadena global de bloques "blockchain" de metadatos, la cual no puede ser tergiversada ni adulterada por entidad alguna.
 
