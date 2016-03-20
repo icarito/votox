@@ -47,7 +47,6 @@ candidatos = []
 with open('Candidatos _Presidenciales-2006-2011-2016.csv') as f:
     #reader = csv.reader(f)
     for row in f:
-        print row
         row = row.split("\t")
         if row[1]=='2016':
             candidatos.append(row)
