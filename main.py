@@ -1,6 +1,6 @@
 # *-* coding: utf-8 *-*
 import kivy
-kivy.require('1.0.6') # replace with your current kivy version !
+kivy.require('1.9.1') # replace with your current kivy version !
 
 from kivy.app import App
 from kivy.uix.button import Button
@@ -13,7 +13,7 @@ from kivy.uix.popup import Popup
 from kivy.uix.progressbar import ProgressBar
 from kivy.uix.textinput import TextInput
 
-import csv
+#import csv
 import random
 
 import hashlib
@@ -39,14 +39,16 @@ VOTOX - Resultado
 =================
 **Sistema distribuído de reporte y conteo de votos.**
 
-El sistema reportará ahora su opción a la cadena de bloques *"blockchain"*. Por favor espere su confirmación a continuación.
+El sistema reportará ahora su opción a la cadena de bloques *"blockchain"*.
 """
 
 #### PARA EL VOTO
 candidatos = []
 with open('Candidatos _Presidenciales-2006-2011-2016.csv') as f:
-    reader = csv.reader(f)
-    for row in reader:
+    #reader = csv.reader(f)
+    for row in f:
+        print row
+        row = row.split("\t")
         if row[1]=='2016':
             candidatos.append(row)
 
@@ -90,7 +92,7 @@ class MyApp(App):
                             orientation='vertical')
         layout.add_widget(welcome)
         layout.add_widget(Button(text='Reportar Mi Voto', 
-                                size_hint=(0.1, 0.1),
+                                size_hint=(0.5, 0.1),
                                 on_press=goto_dni))
         intro.add_widget(layout)
 
@@ -158,7 +160,7 @@ class MyApp(App):
             result = "SERVIDOR NO ENCONTRADO"
 
         self.progress.value=100
-        self.present_result(r.content)
+        self.present_result(result)
 
     def present_result(self, result):
         layout = BoxLayout(padding=10,

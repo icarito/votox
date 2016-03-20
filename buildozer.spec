@@ -1,7 +1,7 @@
 [app]
 
 # (str) Title of your application
-title = Votox Registra tu Voto
+title = Votox
 
 # (str) Package name
 package.name = votox
@@ -33,7 +33,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma seperated e.g. requirements = sqlite3,kivy
-requirements = kivy,requests,random,csv,hashlib
+requirements = kivy,requests,docutils
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
@@ -66,7 +66,7 @@ orientation = portrait
 fullscreen = 1
 
 # (list) Permissions
-#android.permissions = INTERNET
+android.permissions = INTERNET
 
 # (int) Android API to use
 #android.api = 19
